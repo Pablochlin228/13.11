@@ -7,7 +7,7 @@ protected:
 	string name;
 	int ageOfRealise;
 	double maxSpeed;
-	double weigth;
+	double weight;
 	int countOfPassengers;
 public:
 	Transport() {}
@@ -16,7 +16,7 @@ public:
 		name = n;
 		ageOfRealise = a;
 		maxSpeed = s;
-		weigth = w;
+		weight = w;
 		countOfPassengers = p;
 	}
 	void Print()
@@ -24,7 +24,7 @@ public:
 		cout << "Name: " << name << endl;
 		cout << "Age of realise: " << ageOfRealise << endl;
 		cout << "Max speed: " << maxSpeed << endl;
-		cout << "Weidth: " << weigth << endl;
+		cout << "Weidth: " << weight << endl;
 		cout << "Passengers: " << countOfPassengers << endl;
 	}
 	string GetName()
@@ -39,9 +39,9 @@ public:
 	{
 		return maxSpeed;
 	}
-	double GetWeigth()
+	double GetWeight()
 	{
-		return weigth;
+		return weight;
 	}
 	int GetCountOfPassengers()
 	{
@@ -65,11 +65,11 @@ public:
 			maxSpeed = m;
 		}
 	}
-	void SetWeigth(double w)
+	void SetWeight(double w)
 	{
 		if (w > 0)
 		{
-			weigth = w;
+			weight = w;
 		}
 	}
 	void SetCountOfPassengers(int p)
@@ -83,22 +83,85 @@ public:
 
 class Truck : public Transport 
 {
-	int wheels;
+	double wheelsSize;
+	double volumeOfEngine;
 public:
 	Truck() {}
-	Truck(string n, int a, double s, double w, int p, int b)
+	Truck(string n, int a, double s, double w, int p, double wS,double v)
 	{
 		name = n;
 		ageOfRealise = a;
 		maxSpeed = s;
-		weigth = w;
+		weight = w;
 		countOfPassengers = p;
-		wheels = b;
+		wheelsSize = wS;
+		volumeOfEngine = v;
+	}
+	void Print()
+	{
+		Transport::Print();
+		cout << "Size of the wheels: " << wheelsSize << endl;
+		cout << "Volume of engine: " << volumeOfEngine << endl;
+	}
+};
+
+class Plane : public Transport
+{
+	double wingspan;
+	double enginePower;
+public:
+	Plane() {}
+	Plane(string n, int a, double s, double w, int p, double ws, double eP)
+	{
+		name = n;
+		ageOfRealise = a;
+		maxSpeed = s;
+		weight = w;
+		countOfPassengers = p;
+		wingspan = ws;
+		enginePower = eP;
+	}
+	void Print()
+	{
+		Transport::Print();
+		cout << "Wingspan: " << wingspan << endl;
+		cout << "Engine power: " << enginePower << endl;
+	}
+};
+
+class Ship : public Transport
+{
+	double lenght;
+	int countOfScrew;
+	double waterline;
+public:
+	Ship() {}
+	Ship(string n, int a, double s, double w, int p, double l, int sc, double wl)
+	{
+		name = n;
+		ageOfRealise = a;
+		maxSpeed = s;
+		weight = w;
+		countOfPassengers = p;
+		lenght = l;
+		countOfScrew = sc;
+		waterline = wl;
+	}
+	void Print()
+	{
+		Transport::Print();
+		cout << "Lenght: " << lenght << endl;
+		cout << "Count of screw: " << countOfScrew << endl;
+		cout << "Waterline: " << waterline << endl;
 	}
 };
 
 int main()
 {
-	Truck obj1("sdsd", 33, 44, 56, 7, 9);
+	Truck obj1("Truck", 2018, 74.6, 100, 7,4,8.5);
 	obj1.Print();
+	Plane obj2("Plane", 2020, 220, 88, 4, 3, 12);
+	obj2.Print();
+	Ship obj3("Ship", 2010, 105.6, 312, 360, 30, 22,12);
+	obj3.Print();
 }
