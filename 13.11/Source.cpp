@@ -287,25 +287,79 @@ public:
 	}
 	string GetType()
 	{
-		return type
+		return type;
+	}
+	void SetType(string t)
+	{
+		type = t;
 	}
 };
 
 class Tank : public Transport
 {
-
+	bool isShoots;
+	double sizeOfArmour;
+public:
+	Tank() {}
+	Tank(string n, int a, double s, double w, int p, bool i, double arm) :Transport(n, a, s, w, p)
+	{
+		isShoots = i;
+		sizeOfArmour = arm;
+	}
+	void Print()
+	{
+		Transport::Print();
+		if (isShoots)
+		{
+			cout << "Is shoots: Yes" << endl;
+		}
+		else
+		{
+			cout << "Is shoots: No " << endl;
+		}
+		cout << "Size of armour: " << sizeOfArmour << endl;
+	}
+	bool GetIsShoots()
+	{
+		return isShoots;
+	}
+	void SetIsShoots(bool i)
+	{
+		isShoots = i;
+	}
+	double GetSizeOfArmour()
+	{
+		return sizeOfArmour;
+	}
+	void SetSizeOfArmour(double s)
+	{
+		if (s > 0)
+		{
+			sizeOfArmour = s;
+		}
+	}
 };
 
 int main()
 {
 	Truck obj1("Truck", 2018, 74.6, 100, 7,4,8.5);
 	obj1.Print();
+	
 	Plane obj2("Plane", 2020, 220, 88, 4, 3, 12);
 	obj2.Print();
+	
 	Ship obj3("Ship", 2010, 105.6, 312, 360, 30, 22,12);
 	obj3.Print();
+	
 	obj3.SetCountOfPassengers(500);
 	obj3.Print();
-	Car obj4("Car", 2019, 23, 5, 5, "blue", 66);
+	
+	Car obj4("Car", 2019, 23, 120, 5, "blue", 66);
 	obj4.Print();
+	
+	Bike obj5("Bike", 2020, 45, 5, 2, "Sport");
+	obj5.Print();
+	
+	Tank obj6("Tank", 2010, 30, 300, 6, false, 55);
+	obj6.Print();
 }
