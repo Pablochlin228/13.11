@@ -103,6 +103,28 @@ public:
 		cout << "Size of the wheels: " << wheelsSize << endl;
 		cout << "Volume of engine: " << volumeOfEngine << endl;
 	}
+	double GetWheelsSize()
+	{
+		return wheelsSize;
+	}
+	double GetVolumeOfEngine()
+	{
+		return volumeOfEngine;
+	}
+	void SetWheelsSize(double w)
+	{
+		if (w > 0)
+		{
+			wheelsSize = w;
+		}
+	}
+	void SetVolumeOfEngine(double v)
+	{
+		if (v > 0)
+		{
+			volumeOfEngine = v;
+		}
+	}
 };
 
 class Plane : public Transport
@@ -126,6 +148,28 @@ public:
 		Transport::Print();
 		cout << "Wingspan: " << wingspan << endl;
 		cout << "Engine power: " << enginePower << endl;
+	}
+	double GetWingspan()
+	{
+		return wingspan;
+	}
+	double GetEnginePower()
+	{
+		return enginePower;
+	}
+	void SetWingspan(double w)
+	{
+		if (w > 0)
+		{
+			wingspan = w;
+		}
+	}
+	void SetEnginePower(double e)
+	{
+		if (e > 0)
+		{
+			enginePower = e;
+		}
 	}
 };
 
@@ -154,6 +198,102 @@ public:
 		cout << "Count of screw: " << countOfScrew << endl;
 		cout << "Waterline: " << waterline << endl;
 	}
+	double GetLenght()
+	{
+		return lenght;
+	}
+	double GetWaterline()
+	{
+		return waterline;
+	}
+	int GetCountOfScrew()
+	{
+		return countOfScrew;
+	}
+	void SetLenght(double l)
+	{
+		if (l > 0)
+		{
+			lenght = l;
+		}
+	}
+	void SetWaterline(double wl)
+	{
+		if (wl > 0)
+		{
+			waterline = wl;
+		}
+	}
+	void SetCountOfScrew(int c)
+	{
+		if (c > 0)
+		{
+			countOfScrew = c;
+		}
+	}
+};
+
+class Car : public Transport
+{
+	string color;
+	double vat;
+public:
+	Car() {}
+	Car(string n, int a, double s, double w, int p, string c, double v) :Transport(n, a, s, w, p)
+	{
+		color = c;
+		vat = v;
+	}
+	void Print()
+	{
+		Transport::Print();
+		cout << "Color: " << color << endl;
+		cout << "Vat: " << vat << endl;
+	}
+	string GetColor()
+	{
+		return color;
+	}
+	double GetVat()
+	{
+		return vat;
+	}
+	void SetColor(double c)
+	{
+		color = c;
+	}
+	void SetVat(double v)
+	{
+		if (v > 0)
+		{
+			vat = v;
+		}
+	}
+};
+
+class Bike : public Transport
+{
+	string type;
+public:
+	Bike() {}
+	Bike(string n, int a, double s, double w, int p, string t) :Transport(n, a, s, w, p)
+	{
+		type = t;
+	}
+	void Print()
+	{
+		Transport::Print();
+		cout << "Type: " << type << endl;
+	}
+	string GetType()
+	{
+		return type
+	}
+};
+
+class Tank : public Transport
+{
+
 };
 
 int main()
@@ -164,4 +304,8 @@ int main()
 	obj2.Print();
 	Ship obj3("Ship", 2010, 105.6, 312, 360, 30, 22,12);
 	obj3.Print();
+	obj3.SetCountOfPassengers(500);
+	obj3.Print();
+	Car obj4("Car", 2019, 23, 5, 5, "blue", 66);
+	obj4.Print();
 }
